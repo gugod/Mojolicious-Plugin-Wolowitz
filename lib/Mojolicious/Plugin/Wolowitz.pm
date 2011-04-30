@@ -18,6 +18,24 @@ sub register {
 
 1;
 
+=head1 SYNOPSIS
+
+    # Enable this plugin in the startup method.
+    sub startup {
+        my $self = shift;
+        $self->plugin('wolowitz');
+        ...
+    }
+
+
+=head1 DESCRIPTION
+
+L<Locale::Wolowitz> is a i18n tool that use JSON as its lexicon
+storage.  This Mojolicious plugin is an alternative choice to do i18n
+in Mojolicious.  You'll need to make a directory named C<i18n> under
+you app home, and then put translation files into there. See
+L<Locale::Wolowitz> for the content format of JSON files.
+
 =method loc($message, @args)
 
 Return the localized C<$message>. The target language is retrieved from app stash.
