@@ -38,12 +38,16 @@ L<Locale::Wolowitz> for the content format of JSON files.
 
 =method loc($message, @args)
 
-Return the localized C<$message>. The target language is retrieved from app stash.
+Return the localized C<$message>. The language in question is retrieved
+from app stash with key C<"language">. The default language key is C<"en">.
+
+This plugin does not consult the value of C<"Accept"> HTTP request
+header to automatically set the value of language.
 
 For example:
 
     # In controller
-    $self->stash("zh-TW");
+    $self->stash(language => "zh-TW");
 
     # In view
     <%= loc("Nihao") %>
